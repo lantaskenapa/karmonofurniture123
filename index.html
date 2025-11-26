@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Karmono Furniture - Management</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="container">
+<header class="header">
+  <!-- Logo + Nama perusahaan di kiri -->
+  <div class="brand">
+    <img src="assets/logo.png" alt="Karmono Logo" class="logo">
+    <div class="brand-text">
+      <h1 class="brand-title">Karmono</h1>
+      <p class="brand-subtitle">Furniture</p>
+    </div>
+  </div>
+
+  <!-- Search icon di kanan -->
+  <i class="fas fa-search" id="searchBtn"></i>
+</header>
+
+    <main class="content">
+
+      <!-- Categories -->
+<!-- Categories — Sekarang jadi tombol besar yang bisa diklik -->
+<!-- Categories — Horizontal, bisa diklik, hover cantik -->
+<section class="categories">
+ <!-- Tombol Add Project — sekarang buka modal -->
+<div class="menu-btn add-btn" id="openAddModal">
+  <i class="fas fa-plus"></i>
+  <div>
+    <div class="menu-label">Add</div>
+    <div class="menu-subtitle">Project</div>
+  </div>
+</div>
+
+  <div class="menu-btn done-btn" data-action="done">
+    <i class="fas fa-check-circle"></i>
+    <div>
+      <div class="menu-label">Done</div>
+      <div class="menu-subtitle">Project</div>
+    </div>
+  </div>
+
+  <div class="menu-btn export-btn" data-action="export">
+    <i class="fas fa-file-export"></i>
+    <div>
+      <div class="menu-label">Export</div>
+      <div class="menu-subtitle">to Excel</div>
+    </div>
+  </div>
+</section>
+
+      <!-- Recent Files -->
+      <section class="recent">
+        <div class="section-header">
+          <h3>Project List</h3>
+          <a href="#" class="view-all">View all</a>
+        </div>
+        <div class="file-list">
+         
+        </div>
+      </section>
+    </main>
+  </div>
+  <script type="module" src="js/main.js"></script>
+</body>
+</html>

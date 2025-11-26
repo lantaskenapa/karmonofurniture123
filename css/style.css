@@ -1,0 +1,967 @@
+* { margin:0; padding:0; box-sizing:border-box; }
+body {
+  font-family: 'Inter', sans-serif;
+  background: #F8F9FC;
+  padding: 20px;
+  min-height: 100vh;
+}
+.container {
+  max-width: 420px;
+  margin: 0 auto;
+  background: white;
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+}
+
+/* HEADER DENGAN LOGO DI KIRI */
+/* ========================================= */
+/* HEADER BARU: LOGO + TULISAN DI KIRI + SEARCH DI KANAN */
+/* ========================================= */
+
+.header {
+  padding: 20px 28px;                /* lebih lebar biar nyaman */
+  background: white;
+  display: flex;
+  justify-content: space-between;    /* kiri dan kanan otomatis terpisah */
+  align-items: center;
+}
+
+/* Logo + tulisan Karmono Furniture */
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 16px;                         /* jarak antara logo & tulisan */
+}
+
+.logo {
+  height: 56px;                      /* ukuran logo (bisa diganti nanti) */
+  width: auto;
+  object-fit: contain;
+  border-radius: 10px;
+ 
+  transition: transform 0.3s ease;
+}
+
+.logo:hover {
+  transform: scale(1.08);
+}
+
+/* Tulisan Karmono Furniture */
+.brand-text {
+  line-height: 1.2;
+}
+
+.brand-title {
+  font-size: 28px;
+  font-weight: 800;
+  color: #222;
+  margin: 0;
+  letter-spacing: -0.5px;
+}
+
+.brand-subtitle {
+  font-size: 16px;
+  font-weight: 600;
+  color: #777;
+  margin: 0;
+  letter-spacing: 0.5px;
+}
+
+/* Icon search di kanan */
+.header i {
+  font-size: 26px;
+  color: #666;
+  cursor: pointer;
+  padding: 10px;
+  border-radius: 50%;
+  transition: all 0.3s;
+}
+
+.header i:hover {
+  background: #f5f5f5;
+  color: #333;
+}
+
+.content { padding: 30px 24px 40px; }
+.greeting { font-size: 32px; font-weight: 800; }
+.title { font-size: 24px; font-weight: 600; color: #555; margin-bottom: 24px; }
+
+.card {
+  background: linear-gradient(135deg, #9C27B0, #E91E63);
+  border-radius: 24px;
+  padding: 28px;
+  color: white;
+  position: relative;
+  overflow: hidden;
+  margin-bottom: 32px;
+ box-shadow: 0 10px 30px rgba(3, 3, 3, 0.25);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+.cloud-bg {
+  position: absolute;
+  top: -30px; left: -30px;
+  width: 180px;
+  opacity: 0.7;
+}
+.card-content { position: relative; z-index: 2; }
+.card h3 { font-size: 18px; font-weight: 600; }
+.price { font-size: 42px; font-weight: 800; margin: 8px 0; }
+.offer { font-size: 14px; opacity: 0.9; }
+.btn-upgrade {
+  background: #FFB800; color: black; font-weight: bold;
+  border: none; padding: 12px 28px; border-radius: 30px;
+  cursor: pointer; margin-top: 16px; font-size: 16px;
+  transition: 0.2s;
+}
+.btn-upgrade:hover { transform: scale(1.05); }
+
+/* MENU HORIZONTAL YANG BISA DIKLIK + HOVER CANTIK */
+.categories {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 40px;
+}
+
+.menu-btn {
+  flex: 1;
+  background: white;
+  border-radius: 20px;
+  padding: 20px;
+  text-align: center;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.menu-btn i {
+  font-size: 36px;
+}
+
+/* Warna ikon sesuai sebelumnya */
+.add-btn i    { color: #E91E63; }
+.done-btn i   { color: #FF9800; }
+.export-btn i { color: #2196F3; }
+
+.menu-label {
+  font-weight: 700;
+  font-size: 16px;
+  color: #333;
+}
+
+.menu-subtitle {
+  font-size: 13px;
+  color: #888;
+}
+
+/* HOVER EFEK — Naik + shadow lebih tebal */
+.menu-btn:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 16px 35px rgba(0,0,0,0.18);
+}
+
+/* Background hover soft sesuai warna masing-masing */
+.add-btn:hover    { background: #fdf2f8; }
+.done-btn:hover   { background: #fff8e1; }
+.export-btn:hover { background: #e3f2fd; }
+.cat-item { text-align: center; }
+.cat-icon {
+  width: 80px; height: 80px; background: white; border-radius: 20px;
+  display: flex; align-items: center; justify-content: center;
+  margin-bottom: 12px; box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+  font-size: 36px;
+}
+.pink { color: #E91E63; }
+.orange { color: #FF9800; }
+.blue { color: #2196F3; }
+.cat-label { font-weight: 600; font-size: 15px; }
+.cat-count { color: #888; font-size: 13px; }
+
+.section-header {
+  display: flex; justify-content: space-between; align-items: center;
+  margin-bottom: 12px;
+}
+.section-header h3 { font-size: 20px; font-weight: 700; }
+.view-all { color: #9C27B0; text-decoration: none; font-size: 14px; }
+
+.file-item {
+position: relative;
+  display: flex;
+  align-items: center;
+  padding: 16px 20px;
+  background: white;
+  border-radius: 16px;
+  margin-bottom: 12px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+  overflow: visible;
+  transition: all 0.2s ease;
+}
+
+.file-info {
+  flex: 1;
+  margin-left: 16px;
+}
+
+.title-and-budget {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 16px;
+  margin-bottom: 8px;
+}
+
+.budget-text {
+  font-weight: 500;
+  font-size: 16px;
+  color: #1f2937;
+  white-space: nowrap;
+  padding: 4px 10px;
+}
+
+.file-item:last-child { border-bottom: none; }
+.file-icon {
+  width: 50px; height: 50px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  margin-right: 1px; font-size: 24px;
+}
+.yellow { background: #FFF4B8; color: #FFC107; }
+.purple { background: #E8DAFF; color: #9C27B0; }
+.file-info h4 { font-weight: 600; }
+.file-info p { color: #888; font-size: 14px; }
+.more-btn { margin-left: auto; color: #888; cursor: pointer; }
+
+/* BADGE ANGGARAN — POSISI PALING KANAN & CANTIK */
+.project-budget-badge {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  background: linear-gradient(135deg, #10b981, #059669); /* hijau emerald premium */
+  color: white;
+  font-size: 11px;
+  font-weight: 800;
+  padding: 6px 12px;
+  border-radius: 20px;
+  box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
+  z-index: 10;
+  letter-spacing: 0.5px;
+  pointer-events: none;
+}
+
+/* Sidebar Menu */
+.sidebar-overlay {
+  position: fixed; top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0,0,0,0.5); z-index: 998;
+  opacity: 0; visibility: hidden; transition: 0.3s;
+}
+.sidebar-overlay.active { opacity: 1; visibility: visible; }
+
+.sidebar {
+  position: fixed; top: 0; left: -300px; width: 280px; height: 100%;
+  background: white; z-index: 999; transition: 0.3s;
+  box-shadow: 4px 0 20px rgba(0,0,0,0.15);
+  padding: 20px;
+}
+.sidebar.active { left: 0; }
+
+.sidebar-header {
+  display: flex; justify-content: space-between; align-items: center;
+  margin-bottom: 30px; padding-bottom: 15px; border-bottom: 1px solid #eee;
+}
+.sidebar-header h3 { font-size: 22px; font-weight: 700; }
+.sidebar-header i { font-size: 24px; cursor: pointer; color: #888; }
+
+.sidebar-menu li {
+  padding: 16px 12px;
+  font-size: 17px;
+  font-weight: 600;
+  cursor: pointer;
+  border-radius: 12px;
+  transition: 0.2s;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.sidebar-menu li:hover {
+  background: #f5f0ff;
+  color: #9C27B0;
+}
+.sidebar-menu i { font-size: 18px; width: 24px; }
+
+/* HALAMAN DETAIL PROYEK */
+.detail-page { padding: 20px 24px; }
+
+.table-section {
+  margin-bottom: 40px;
+  background: white;
+  border-radius: 16px;
+  padding: 20px;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+}
+
+.table-section h3 {
+  margin-bottom: 16px;
+  color: #333;
+  font-size: 20px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 16px;
+}
+
+th, td {
+  padding: 12px;
+  text-align: left;
+  border-bottom: 1px solid #eee;
+}
+
+th {
+  background: #f8f9fc;
+  font-weight: 600;
+  color: #555;
+}
+
+.btn-minimal {
+  background: #9C27B0;
+  color: white;
+  border: none;
+  padding: 10px 18px;
+  border-radius: 12px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.btn-minimal:hover {
+  background: #7b1fa2;
+  transform: translateY(-2px);
+}
+
+/* TOMBOL BACK — ICON ONLY (minimalis banget) */
+/* TOMBOL BACK — ICON ONLY DI KANAN ATAS */
+.btn-back-icon {
+  position: absolute;
+  top: 20px;
+  right: 20px;                    /* ← pindah ke KANAN */
+  width: 44px;
+  height: 44px;
+  background: rgba(255, 255, 255, 0.95);
+  border: none;
+  border-radius: 50%;
+  font-size: 20px;
+  color: #444;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+  z-index: 100;
+}
+
+.btn-back-icon:hover {
+  background: white;
+  color: #000;
+  transform: scale(1.1);
+  box-shadow: 0 8px 25px rgba(0,0,0,0.18);
+}
+
+/* Pastikan header support posisi absolute */
+.header {
+  position: relative;
+  padding: 20px 28px;
+}
+
+/* JUDUL PROYEK MINIMALIS & ELEGAN */
+/* JUDUL PROYEK — SUPER MINIMALIS & KECIL */
+.project-title {
+  margin: 0 0 4px 0;
+  font-weight: 700;
+  font-size: 16px;
+  color: #1f2937;
+  line-height: 1.35;
+  word-break: break-word;          /* judul panjang otomatis pindah baris */
+  overflow-wrap: break-word;
+}
+
+.project-subtitle {
+  font-size: 12px !important;    /* sangat kecil */
+  font-weight: 500;
+  color: #999 !important;
+  margin: 2px 0 0 0;
+  letter-spacing: 0.5px;
+}
+
+.brand-text {
+  line-height: 1;          /* blok teks jadi sangat kompak */
+}
+
+/* ============================================= */
+/* 1. HAPUS TITIK TIGA (more-btn) TOTAL          */
+/* ============================================= */
+.more-btn {
+  display: none !important;
+}
+
+/* ============================================= */
+/* 2. TOMBOL ADD PROJECT (di halaman utama)      */
+/* ============================================= */
+#openAddModal {
+  cursor: pointer;
+}
+
+/* ============================================= */
+/* 3. MODAL ADD PROJECT (dari file terpisah)     */
+/* ============================================= */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.65);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+  backdrop-filter: blur(4px);
+}
+.modal-overlay.active {
+  display: flex;
+}
+
+.modal-content {
+  background: white;
+  width: 90%;
+  max-width: 420px;
+  border-radius: 20px;
+  padding: 24px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.22);
+  animation: modalPop 0.3s ease-out;
+}
+
+@keyframes modalPop {
+  from { transform: scale(0.9); opacity: 0; }
+  to   { transform: scale(1); opacity: 1; }
+}
+
+/* ICON X DI KANAN ATAS — CANTIK & RAPI */
+.modal-header {
+  display: flex;
+  justify-content: space-between;   /* judul kiri, tombol kanan */
+  align-items: center;
+  margin-bottom: 24px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid #eee;
+}
+
+.modal-header h3 {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 500;
+  color: #333;
+}
+
+.close-modal-btn {
+  background: none;
+  border: none;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 20px;
+  color: #999;
+  transition: all 0.3s ease;
+}
+
+.close-modal-btn:hover {
+  background: #f1f1f1;
+  color: #e74c3c;
+  transform: scale(1.1);
+}
+
+/* Hapus gaya lama kalau masih ada */
+.modal-header i.close-modal {
+  display: none !important;
+}
+
+/* Input & Select di Modal */
+#addProjectForm input,
+#addProjectForm select {
+  width: 100%;
+  padding: 14px 16px;
+  margin: 10px 0;
+  border: 1.5px solid #ddd;
+  border-radius: 12px;
+  font-family: inherit;
+  font-size: 14px;
+  transition: border 0.2s;
+}
+#addProjectForm input:focus,
+#addProjectForm select:focus {
+  outline: none;
+  border-color: #9C27B0;
+}
+
+/* FORM TAMBAH PROJECT — SUPER CANTIK & MODERN */
+.form-group {
+  margin-bottom: 18px;
+}
+
+.form-group label {
+  display: block;
+  font-size: 14px;
+  font-weight: 600;
+  color: #444;
+  margin-bottom: 6px;
+}
+
+.form-group input,
+.form-group select {
+  width: 100%;
+  padding: 14px 16px;
+  border: 2px solid #e0e0e0;
+  border-radius: 14px;
+  font-size: 15px;
+  transition: all 0.3s ease;
+  background: #fafafa;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+  outline: none;
+  border-color: #9C27B0;
+  background: white;
+  box-shadow: 0 0 0 4px rgba(156, 39, 176, 0.1);
+}
+
+/* Custom Radio Button Cantik */
+/* PASTI BERUBAH — RADIO ASLI DISEMBUNYIKAN, JARAK LEGA! */
+/* URGENSI — NORMAL = BIRU, RUSH = MERAH (SESUAI PERMINTAANMU) */
+.urgency-group {
+  display: flex;
+  gap: 44px !important;
+  margin-top: 12px;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.radio-label {
+  display: flex !important;
+  align-items: center;
+  gap: 16px !important;
+  font-size: 15.5px;
+  font-weight: 600;
+  cursor: pointer;
+  color: #333;
+  user-select: none;
+}
+
+/* Bulatan default */
+.custom-radio {
+  width: 26px !important;
+  height: 26px !important;
+  border: 3px solid #ccc;
+  border-radius: 50%;
+  position: relative;
+  flex-shrink: 0;
+  transition: all 0.3s ease;
+  background: white;
+}
+
+/* NORMAL → BIRU */
+.radio-label input[value="Normal"]:checked + .custom-radio {
+  background: #3B82F6;        /* biru cantik */
+  border-color: #3B82F6 !important;
+  box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.2);
+}
+
+/* RUSH → MERAH KARMOMO */
+.radio-label input[value="Rush"]:checked + .custom-radio {
+  background: #E82064;
+  border-color: #E82064 !important;
+  box-shadow: 0 0 0 4px rgba(232, 32, 100, 0.2);
+}
+
+/* Titik putih di tengah saat dipilih */
+.radio-label input:checked + .custom-radio::after {
+  content: '';
+  width: 12px;
+  height: 12px;
+  background: white;
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* Border warna saat belum dipilih (opsional biar kelihatan beda) */
+.custom-radio.rush {
+  border-color: #E82064 !important;
+}
+
+/* Tombol Simpan Lebih Premium */
+/* TOMBOL SIMPAN — WARNA PASTEL CANTIK */
+/* TOMBOL SIMPAN — WARNA SAMA DENGAN ICON + (UNGU PASTEL) */
+.btn-submit {
+  background: linear-gradient(135deg, #E82064, #C2185B);   /* merah Karmono utama */
+  color: white !important;
+  border: none;
+  padding: 16px;
+  width: 100%;
+  border-radius: 16px;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  margin-top: 16px;
+  box-shadow: 0 6px 20px rgba(232, 32, 100, 0.35);         /* shadow merah */
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.btn-submit:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 30px rgba(232, 32, 100, 0.5);          /* shadow lebih tebal */
+  background: linear-gradient(135deg, #f1276d, #d81a60);   /* sedikit lebih terang saat hover */
+}
+
+.btn-submit i {
+  font-size: 18px;
+}
+
+/* ============================================= */
+/* 4. PROJECT LIST ITEM BARU (yang ditambah dari modal) */
+/* ============================================= */
+.file-item {
+  position: relative !important;
+  display: flex;
+  align-items: center;
+  padding: 16px 20px 16px 16px;
+  background: white;
+  border-radius: 16px;
+  margin-bottom: 12px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+  overflow: visible !important;
+  transition: all 0.2s ease;
+}
+.file-item:hover {
+  background: #f9f5ff;
+}
+
+/* PERBAIKAN FINAL — TANGGAL MULAI & ESTIMASI BERSEBELAHAN, TIDAK ADA ICON TUMPUK! */
+.form-row {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 18px;
+  align-items: flex-end;
+}
+
+.form-group.half {
+  flex: 1;
+  position: relative;
+}
+
+/* ESTIMASI DROPDOWN */
+.form-group.half select {
+  width: 100%;
+  padding: 14px 16px;
+  border: 2.2px solid #e0e0e0;
+  border-radius: 14px;
+  font-size: 15px;
+  background: #fafafa;
+  transition: all 0.3s ease;
+  appearance: none;
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%239C27B0'%3e%3cpath d='M7 10l5 5 5-5z'/%3e%3c/svg%3e");
+  background-repeat: no-repeat;
+  background-position: right 14px center;
+  background-size: 12px;
+}
+
+.form-group.half select:focus {
+  outline: none;
+  border-color: #9C27B0;
+  background-color: white;
+  box-shadow: 0 0 0 4px rgba(156, 39, 176, 0.1);
+}
+
+/* TANGGAL MULAI — HANYA SATU ICON, TIDAK TUMPUK! */
+.inline-date {
+  position: relative;
+}
+
+.inline-date label {
+  font-size: 14px;
+  font-weight: 600;
+  color: #444;
+  margin-bottom: 6px;
+  display: block;
+}
+
+.inline-date .date-wrapper {
+  position: relative;
+  display: block;
+}
+
+.inline-date .date-wrapper i {
+  position: absolute;
+  left: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #9C27B0;
+  font-size: 18px;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.inline-date input[type="date"] {
+  width: 100%;
+  padding: 14px 16px 14px 44px !important;   /* penting: kasih ruang buat icon */
+  border: 2.2px solid #e0e0e0;
+  border-radius: 14px;
+  font-size: 15px;
+  background: #fafafa;
+  transition: all 0.3s ease;
+  color: #333;
+}
+
+.inline-date input[type="date"]:focus {
+  outline: none;
+  border-color: #9C27B0;
+  background: white;
+  box-shadow: 0 0 0 4px rgba(156, 39, 176, 0.1);
+}
+
+/* Chrome: sembunyikan panah default agar tidak tumpuk */
+.inline-date input[type="date"]::-webkit-calendar-picker-indicator {
+  opacity: 0;
+  cursor: pointer;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+/* Mobile responsif */
+@media (max-width: 480px) {
+  .form-row {
+    flex-direction: column;
+    gap: 18px;
+  }
+  .form-group.half { flex: none; }
+}
+
+/* ICON + PASTEL DI JUDUL MODAL */
+.modal-plus-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  background: linear-gradient(135deg, #E82064, #C2185B);   /* MERAH KARMOMO */
+  color: white;
+  border-radius: 50%;
+  margin-right: 12px;
+  box-shadow: 0 4px 15px rgba(232, 32, 100, 0.4);           /* shadow merah */
+}
+
+.modal-plus-icon svg {
+  width: 18px;
+  height: 18px;
+}
+
+/* Optional: biar lebih rapi */
+.modal-header h3 {
+  display: flex;
+  align-items: center;
+  font-size: 19px;
+  font-weight: 700;
+  color: #333;
+  margin: 0;
+}
+
+/* FINAL — JUDUL PANJANG TURUN SENDIRI, ANGGARAN TETAP DI KANAN ATAS */
+/* FINAL — JUDUL PANJANG TURUN SENDIRI, ANGGARAN TETAP DI KANAN BARIS PERTAMA */
+.title-budget-row {
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 4px;
+  padding-right: 110px;           /* Ruang buat anggaran */
+  min-height: 24px;
+}
+
+.project-title-long {
+  flex: 1;
+  min-width: 0;
+  margin: 0;
+  font-weight: 600;
+  font-size: 16px;
+  color: #1f2937;
+  line-height: 1.4;
+  word-break: break-word;
+}
+
+.project-budget-fixed {
+  position: absolute;
+  top: 0;
+  right: 0;
+  font-weight: 600;
+  font-size: 16px;
+  color: #1f2937;
+  white-space: nowrap;
+  background: white;
+  padding-left: 8px;
+}
+
+.file-info {
+  flex: 1;
+  position: relative;        /* JANGAN KURANG DARI INI */
+  min-width: 0;
+}
+
+.project-title {
+  margin: 0 0 4px 0;
+  font-weight: 600;
+  font-size: 16px;
+  color: #1f2937;
+  line-height: 1.4;
+  word-break: break-word;
+  padding: 0;
+}
+
+.budget-label {
+  position: absolute;
+  top: 16px;           /* ATUR DI SINI kalau mau lebih atas/bawah */
+  right: 20px;         /* JARAK DARI KANAN */
+  font-weight: 600;
+  font-size: 16px;     /* UBAH UKURAN DI SINI */
+  color: #1f2937;      /* UBAH WARNA DI SINI (contoh: #10b981 untuk hijau) */
+  white-space: nowrap;
+  background: white;
+  padding-left: 8px;
+  z-index: 10;
+}
+
+/* LOKASI & ESTIMASI — 2 BARIS TERPISAH, RAPI & CANTIK */
+/* ===== LOKASI ===== */
+.location-line {
+  margin: 0 0 1px 0;
+  font-size: 13.5px;          /* ubah ukuran di sini */
+  font-weight: 400;           /* 400 = normal, 600 = agak tebal, 700 = tebal */
+  color: #161718;             /* ubah warna di sini */
+  font-family: 'Inter', sans-serif;   /* ganti font kalau mau (misal: 'Poppins') */
+  letter-spacing: 0.3px;      /* jarak antar huruf */
+  text-transform: none;       /* atau 'uppercase' kalau mau HURUF BESAR semua */
+}
+
+/* ===== ESTIMASI WAKTU (Minggu) ===== */
+.estimate-line {
+  margin: 1px 0 0 0;
+  font-size: 14.5px;          /* biasanya sedikit lebih besar dari lokasi */
+  font-weight: 400;           /* tebal biar kelihatan penting */
+  color: #161718;             /* warna lebih gelap */
+  font-family: 'Inter', sans-serif;
+  letter-spacing: 0.2px;
+  text-transform: capitalize;   /* otomatis jadi "Minggu" (huruf depan besar) */
+}
+
+/* Kalau mau pakai titik bulat ▪ di depan lokasi */
+.location-line::after {
+  content: "-";
+  margin-left: 6px;
+  color: #999;
+  font-weight: bold;
+}
+
+/* === BADGE URGENSII DI PROJECT CARD === */
+
+.urgensi-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 4px 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.urgensi-badge::before {
+  content: '';
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: currentColor;
+  display: inline-block;
+}
+
+.urgensi-badge.normal {
+  color: #3b82f6;
+}
+
+.urgensi-badge.rush {
+  color: #ef4444;
+  animation: pulse 2s infinite;
+}
+
+/* Optional: efek kedip halus untuk Rush */
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.7; }
+}
+
+/* Kontainer Sisi Kiri (Judul & Lokasi) */
+.title-and-location {
+  flex: 1;
+  min-width: 0;                    /* ini kunci biar judul panjang wrap rapi */
+}
+
+/* Kontainer Sisi Kanan (Budget & Urgensi) */
+/* 3. GANTI .budget-and-urgensi (ini yang bikin budget + badge nempel kanan) */
+.budget-and-urgensi {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0px;                        /* jarak antara Rp ... dan badge */
+  min-width: 120px;
+}
+
+/* Revisi Budget Text agar lebih besar dan sesuai */
+
+
+/* Kontainer Sisi Kiri (Judul & Lokasi) */
+.title-and-location {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Kontainer Sisi Kanan (Budget & Urgensi) */
+.budget-and-urgensi {
+  /* Ini yang mengatur Budget di atas Badge */
+  display: flex;
+  flex-direction: column; 
+  align-items: flex-end; /* Membuat teks budget dan badge rata kanan */
+  margin-left: 10px; /* Jarak dari teks judul jika judulnya panjang */
+  min-width: 100px; /* Minimal lebar agar tidak berantakan */
+}
+
+/* Revisi Budget Text agar lebih besar dan sesuai */
+
+/* Penyesuaian agar badge langsung di bawah budget */
+.urgensi-container-revised {
+  margin-top: 0; 
+}

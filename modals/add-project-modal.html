@@ -1,0 +1,71 @@
+<!-- modals/add-project-modal.html — FINAL & SUDAH DIPERBAIKI 100% -->
+<div class="modal-overlay" id="addProjectModal">
+  <div class="modal-content">
+   <div class="modal-header">
+    <h3>
+  <span class="modal-plus-icon">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+      <line x1="12" y1="5" x2="12" y2="19"></line>
+      <line x1="5" y1="12" x2="19" y2="12"></line>
+    </svg>
+  </span>
+  Tambah Project Baru
+</h3>
+  <button class="close-modal-btn" data-modal="addProjectModal">
+    <i class="fas fa-times"></i>
+  </button>
+</div>
+
+    <form id="addProjectForm">
+      <div class="form-group">
+        <label for="namaProject">Nama Project</label>
+        <input type="text" id="namaProject" placeholder="Contoh: Yons Carwash" required>
+      </div>
+
+      <div class="form-group">
+        <label for="lokasi">Lokasi</label>
+        <input type="text" id="lokasi" placeholder="Contoh: Jakarta Selatan" required>
+      </div>
+
+      <div class="form-group">
+        <label for="anggaran">Anggaran (Rp)</label>
+        <input type="number" id="anggaran" placeholder="Contoh: 25.000.000" required>
+      </div>
+
+   <div class="form-row">
+  <div class="form-group half">
+    <label for="estimasi">Estimasi Pengerjaan</label>
+    <select id="estimasi" required>
+      <option value="" disabled selected>Pilih durasi</option>
+    </select>
+  </div>
+
+  <div class="form-group half inline-date">
+    <label>Tanggal Mulai</label>
+    <div class="date-wrapper">
+      <i class="fas fa-calendar-alt"></i>
+      <input type="date" id="tanggalMulai" required>
+    </div>
+  </div>
+</div>
+
+      <div class="form-group">
+        <label>Urgensi</label>
+        <div class="urgency-group">
+          <label class="radio-label">
+            <input type="radio" name="urgensi" value="Normal" checked hidden>
+            <span class="custom-radio"></span> Normal
+          </label>
+          <label class="radio-label">
+            <input type="radio" name="urgensi" value="Rush" hidden>
+            <span class="custom-radio rush"></span> Rush
+          </label>
+        </div>
+      </div>
+
+      <button type="submit" class="btn-submit">
+        Tambah Project
+      </button>
+    </form>
+  </div>
+</div>
