@@ -55,4 +55,103 @@
   }
   textarea { min-height: 80px; resize: vertical; }
   label { font-size: 13px; color: #555; margin-bottom: 8px; display: block; font-weight: 500; }
+
+  /* ============================================================= */
+/* RESPONSIVE KHUSUS MODAL SEDERHANA (Quick Note / Feedback)    */
+/* ============================================================= */
+@media (max-width: 480px) {
+
+  .modal-backdrop {
+    padding: 20px;
+    background: rgba(0,0,0,0.6);        /* sedikit lebih gelap biar fokus */
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+  }
+
+  .modal-content {
+    padding: 28px 22px;
+    border-radius: 18px;
+    max-width: 380px;
+    width: 94%;
+    box-shadow: 0 16px 40px rgba(0,0,0,0.18);
+  }
+
+  /* Judul modal (jika ada) */
+  .modal-content h3,
+  .modal-title {
+    font-size: 20px !important;
+    margin-bottom: 16px;
+  }
+
+  /* Label & input/textarea lebih nyaman di HP */
+  label {
+    font-size: 13.5px;
+    margin-bottom: 7px;
+    font-weight: 600;
+    color: #444;
+  }
+
+  input,
+  textarea {
+    padding: 13px 15px;
+    font-size: 15px;           /* mencegah zoom otomatis di iOS */
+    border-width: 1.8px;
+    border-radius: 14px;
+    background: #fdfdfd;
+  }
+
+  input:focus,
+  textarea:focus {
+    border-color: #9C27B0;
+    background: white;
+    box-shadow: 0 0 0 4px rgba(156, 39, 176, 0.12);
+  }
+
+  textarea {
+    min-height: 96px;          /* sedikit lebih tinggi biar nyaman ngetik */
+  }
+
+  /* Tombol actions (jika ada Cancel + Simpan) */
+  .modal-actions {
+    display: flex;
+    flex-direction: column;    /* tombol bertumpuk = paling aman di HP */
+    gap: 12px;
+    margin-top: 24px;
+  }
+
+  .modal-actions .btn-cancel,
+  .modal-actions .btn-primary,
+  .modal-actions button {
+    padding: 15px 20px;
+    font-size: 15px;
+    border-radius: 14px;
+  }
+
+  /* Tombol utama (biasanya Simpan) selalu di atas */
+  .modal-actions .btn-primary {
+    order: -1;
+  }
+
+  /* Jika ada tombol close (×) di pojok kanan atas */
+  .close-modal-btn {
+    width: 42px;
+    height: 42px;
+    font-size: 22px;
+  }
+}
+
+/* HP sangat kecil (iPhone SE, Galaxy Fold, dll) */
+@media (max-width: 360px) {
+  .modal-content {
+    padding: 24px 18px;
+  }
+  input,
+  textarea {
+    padding: 12px 14px;
+    font-size: 14.8px;
+  }
+  textarea {
+    min-height: 88px;
+  }
+}
 </style>

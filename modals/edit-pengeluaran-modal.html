@@ -217,4 +217,146 @@
     from { transform: translateY(60px); opacity: 0; }
     to { transform: translateY(0); opacity: 1; }
   }
+
+/* ================================================================= */
+/* RESPONSIVE KHUSUS MODAL ITEM PENGELUARAN (KALKULASI) – HP ≤ 480px */
+/* ================================================================= */
+@media (max-width: 480px) {
+
+  /* Backdrop + margin aman */
+  .modal-backdrop {
+    padding: 20px;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+  }
+
+  /* Modal jadi lebih ramping & nyaman */
+  .modal-content {
+    padding: 28px 22px;
+    border-radius: 20px;
+    max-width: 380px;
+    width: 94%;
+  }
+
+  /* Header */
+  .modal-header {
+    margin-bottom: 20px;
+  }
+  .modal-title {
+    font-size: 20px;
+  }
+  .modal-title svg,
+  .modal-title i {
+    width: 28px !important;
+    height: 28px !important;
+    margin-right: 10px;
+  }
+  .close-modal-btn {
+    width: 42px;
+    height: 42px;
+    font-size: 22px;
+  }
+
+  /* Form label & input */
+  label {
+    font-size: 13px;
+    margin-bottom: 6px;
+  }
+  input, textarea {
+    padding: 13px 15px;
+    font-size: 14.8px;
+    border-width: 1.8px;
+  }
+  textarea {
+    min-height: 88px;
+  }
+
+  /* BARIS KALKULASI — INI YANG PALING KRUSIAL */
+  .calc-row {
+    grid-template-columns: 1fr auto 1fr auto 1fr; /* tetap 5 kolom */
+    gap: 10px;
+    padding: 14px 12px;
+    border-radius: 14px;
+  }
+  .calc-input {
+    font-size: 16px !important;
+    padding: 10px 8px !important;
+  }
+  .calc-symbol {
+    font-size: 20px;
+  }
+  .calc-result {
+    font-size: 18px;
+  }
+
+  /* Jika layar sangat sempit, ubah jadi vertikal supaya tidak pecah */
+  @media (max-width: 380px) {
+    .calc-row {
+      grid-template-columns: 1fr;
+      gap: 12px;
+      text-align: center;
+    }
+    .calc-symbol {
+      font-size: 18px;
+      color: #0d9488;
+    }
+    .calc-result {
+      font-size: 19px;
+      font-weight: 900;
+      color: #06b6d4;
+    }
+  }
+
+  /* Tombol Cancel + Simpan jadi bertumpuk (lebih aman & mudah diketuk) */
+  .modal-actions {
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 28px;
+  }
+  .btn-cancel,
+  .btn-primary {
+    flex: 1;
+    padding: 15px 20px;
+    font-size: 15px;
+  }
+  .btn-primary {
+    order: -1;                     /* tombol biru selalu di atas */
+  }
+
+  /* Hover tetap hidup tapi lebih halus */
+  .btn-cancel:hover,
+  .btn-primary:hover {
+    transform: translateY(-3px);
+  }
+
+  /* Animasi sedikit lebih ringan di HP */
+  @keyframes slideUp {
+    from { transform: translateY(50px); opacity: 0; }
+    to   { transform: translateY(0); opacity: 1; }
+  }
+}
+
+/* HP sangat kecil (iPhone SE, Galaxy Fold, dll) */
+@media (max-width: 360px) {
+  .modal-content {
+    padding: 24px 18px;
+  }
+  .modal-title {
+    font-size: 19px;
+  }
+  input, textarea {
+    padding: 12px 14px;
+    font-size: 14.5px;
+  }
+  .calc-row {
+    padding: 12px 10px;
+    gap: 8px;
+  }
+  .calc-input {
+    font-size: 15px !important;
+  }
+}
+
+
+
 </style>

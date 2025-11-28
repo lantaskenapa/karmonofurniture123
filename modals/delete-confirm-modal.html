@@ -126,4 +126,92 @@
     0%, 100% { transform: scale(1); }
     50% { transform: scale(1.07); }
   }
+
+/* ==================================================== */
+/* RESPONSIVE KHUSUS MODAL KONFIRMASI HAPUS (HP)       */
+/* ==================================================== */
+@media (max-width: 480px) {
+  
+  /* Backdrop blur tetap enak */
+  .modal-backdrop {
+    padding: 20px;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+  }
+
+  /* Modal jadi lebih tinggi & padding lebih lega */
+  .modal-content {
+    padding: 32px 24px;
+    border-radius: 20px;
+    width: 94%;
+    max-width: 360px;
+    gap: 20px;
+  }
+
+  /* Icon peringatan jadi lebih kecil biar nggak makan tempat */
+  .warning-icon {
+    width: 72px;
+    height: 72px;
+    margin-bottom: 16px;
+  }
+  .warning-icon svg,
+  .warning-icon i {
+    font-size: 42px;
+  }
+
+  /* Judul & deskripsi lebih kompak */
+  .modal-title {
+    font-size: 21px;
+    line-height: 1.3;
+  }
+
+  .modal-desc {
+    font-size: 14.5px;
+    max-width: 280px;
+    line-height: 1.6;
+    margin-bottom: 28px;
+  }
+
+  /* Tombol jadi full width & lebih tinggi */
+  .modal-actions {
+    flex-direction: column;
+    gap: 12px;
+    max-width: 100%;
+  }
+
+  .btn-cancel,
+  .btn-delete {
+    padding: 16px 20px;
+    font-size: 15.5px;
+    border-radius: 16px;
+  }
+
+  /* Tombol Delete efek hover tetap dramatis */
+  .btn-delete:hover {
+    transform: translateY(-4px);
+  }
+  .btn-delete:active {
+    transform: translateY(-1px);
+  }
+
+  /* Animasi pulse sedikit lebih halus di HP */
+  @keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+  }
+}
+
+/* Extra kecil untuk HP sangat kecil (iPhone SE, Galaxy Fold, dll) */
+@media (max-width: 360px) {
+  .modal-content {
+    padding: 28px 20px;
+  }
+  .modal-title { font-size: 20px; }
+  .modal-desc { font-size: 14px; }
+  .warning-icon { width: 64px; height: 64px; }
+  .warning-icon svg,
+  .warning-icon i { font-size: 38px; }
+}
+
+
 </style>

@@ -1455,3 +1455,212 @@ background: #ef4444;
   background: #0891b2; transform: translateY(-3px);
   box-shadow: 0 12px 28px rgba(6,182,212,0.35);
 }
+
+/* ========================================= */
+/* RESPONSIVE MOBILE (≤ 480px) – TAMBAHAN    */
+/* ========================================= */
+@media (max-width: 480px) {
+  body { padding: 12px; }
+
+  .container {
+    border-radius: 18px;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.1);
+  }
+
+  /* Header – logo + teks jadi lebih rapat */
+  .header {
+    padding: 16px 20px;
+  }
+  .brand { gap: 12px; }
+  .brand-title { font-size: 22px; }
+  .brand-subtitle { font-size: 14px; }
+  .header i { font-size: 24px; padding: 8px; }
+
+  /* Greeting & title */
+  .greeting { font-size: 26px; }
+  .title { font-size: 20px; }
+
+  /* Card promo */
+  .card {
+    padding: 20px;
+    border-radius: 18px;
+  }
+  .price { font-size: 36px; }
+  .btn-upgrade {
+    padding: 12px 24px;
+    font-size: 15px;
+  }
+
+  /* Menu horizontal 3 tombol */
+  .categories {
+    gap: 12px;
+    margin-bottom: 32px;
+  }
+  .menu-btn {
+    padding: 16px 12px;
+  }
+  .menu-btn i { font-size: 30px; }
+  .menu-label { font-size: 14px; }
+  .menu-subtitle { font-size: 12px; }
+
+  /* Project list item – lebih lega di HP */
+  .file-item {
+    padding: 14px 16px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  /* Icon file jadi lebih kecil */
+  .file-icon {
+    width: 44px;
+    height: 44px;
+    font-size: 20px;
+  }
+
+  /* Judul + budget jadi vertikal */
+  .title-and-budget,
+  .title-budget-row {
+    flex-direction: column;
+    align-items: flex-start;
+    padding-right: 0 !important;
+    gap: 6px;
+  }
+
+  .budget-label,
+  .project-budget-fixed {
+    position: static !important;
+    font-size: 15px;
+    padding: 0;
+  }
+
+  /* Badge anggaran hijau pindah ke bawah judul */
+  .project-budget-badge {
+    position: static;
+    align-self: flex-end;
+    margin-top: 4px;
+  }
+
+  /* Budget + urgensi di kanan jadi full width */
+  .budget-and-urgensi {
+    width: 100%;
+    align-items: flex-end;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 12px;
+  }
+
+  /* Urgensi badge jadi lebih kecil */
+  .urgensi-badge {
+    font-size: 10px;
+    padding: 3px 8px;
+  }
+
+  /* Lokasi & estimasi jadi lebih kecil */
+  .location-line { font-size: 13px; }
+  .estimate-line { font-size: 13.5px; }
+
+  /* Bottom line (tanggal mulai + estimasi) */
+  .bottom-line {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+    padding-top: 8px;
+  }
+  .tanggal-mulai-kecil { text-align: left; }
+
+  /* Section header (Recent Projects dll) */
+  .section-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+  .view-all { align-self: flex-end; }
+
+  /* Modal Add Project */
+  .modal-content,
+  .edit-project-modal,
+  #editListModal {
+    width: 94%;
+    border-radius: 18px;
+    padding: 20px;
+  }
+
+  /* Form di modal jadi full width */
+  .form-row { 
+    flex-direction: column; 
+    gap: 16px; 
+  }
+  .form-group.half { flex: none; }
+
+  /* Urgensi radio jadi vertikal kalau terlalu sempit */
+  .urgency-group {
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+
+  /* Tombol di modal */
+  .btn-submit {
+    padding: 14px;
+    font-size: 15px;
+  }
+
+  /* Detail page */
+  .detail-page { padding: 16px; }
+  .btn-back-icon {
+    width: 40px;
+    height: 40px;
+    font-size: 18px;
+    top: 16px;
+    right: 16px;
+  }
+
+  /* Tabel di detail project */
+  table {
+    font-size: 13px;
+  }
+  th, td {
+    padding: 10px 8px;
+  }
+
+  /* Meta info di detail (grid 2 kolom jadi 1 kolom) */
+  .meta-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  .meta-item,
+  .estimasi-group {
+    padding-left: 0;
+  }
+  .meta-item::before {
+    display: none;
+  }
+
+  /* Header actions (sort + edit) jadi vertikal */
+  .header-actions {
+    flex-direction: column;
+    width: 100%;
+  }
+  .sort-trigger-btn,
+  .edit-trigger-btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  /* Edit List Modal – project row */
+  #editListModal .modal-body > div > div {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 16px;
+  }
+  #editListModal button[data-docid],
+  #editListModal .btn-edit-row {
+    align-self: flex-end;
+  }
+
+  /* Edit Project Modal – grid jadi kolom */
+  .edit-form-grid {
+    grid-template-columns: 1fr;
+  }
+}

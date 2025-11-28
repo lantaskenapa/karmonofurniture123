@@ -60,4 +60,117 @@
   .btn-primary:hover { transform:translateY(-3px); box-shadow:0 12px 24px rgba(16,185,129,.4); }
   @keyframes fadeIn { from{opacity:0} to{opacity:1} }
   @keyframes slideUp { from{transform:translateY(60px);opacity:0} to{transform:translateY(0);opacity:1} }
+
+/* ============================================================= */
+/* RESPONSIVE KHUSUS MODAL TAMBAH/EDIT PENGELUARAN (≤ 480px)     */
+/* ============================================================= */
+@media (max-width: 480px) {
+
+  /* Backdrop + padding biar nggak nempel pinggir layar */
+  .modal-backdrop {
+    padding: 20px;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+  }
+
+  /* Modal jadi lebih ramping & nyaman di HP */
+  .modal-content {
+    padding: 28px 22px;
+    border-radius: 20px;
+    max-width: 380px;
+    width: 94%;
+  }
+
+  /* Header modal */
+  .modal-header {
+    margin-bottom: 20px;
+  }
+
+  .modal-title {
+    font-size: 20px;
+  }
+
+  .modal-title svg,
+  .modal-title i {
+    width: 28px;
+    height: 28px;
+    margin-right: 10px;
+  }
+
+  .close-modal-btn {
+    width: 42px;
+    height: 42px;
+    font-size: 22px;
+  }
+
+  /* Label & input lebih kompak */
+  label {
+    font-size: 13px;
+    margin-bottom: 6px;
+  }
+
+  input,
+  select {
+    padding: 13px 15px;
+    font-size: 14.5px;
+    border-width: 1.8px;
+  }
+
+  input:focus,
+  select:focus {
+    box-shadow: 0 0 0 4px rgba(16, 185, 129, 0.15);
+  }
+
+  /* Tombol di bawah (Cancel + Simpan) */
+  .modal-actions {
+    flex-direction: column;     /* tombol bertumpuk = lebih mudah diketuk */
+    gap: 12px;
+    margin-top: 28px;
+  }
+
+  .btn-cancel,
+  .btn-primary {
+    flex: 1;
+    padding: 15px 20px;
+    font-size: 15px;
+  }
+
+  /* Primary button tetap lebar penuh */
+  .btn-primary {
+    order: -1;                  /* biar tombol Hijau di atas Cancel (lebih aman) */
+  }
+
+  /* Hover tetap aktif tapi lebih halus di HP */
+  .btn-cancel:hover,
+  .btn-primary:hover {
+    transform: translateY(-3px);
+  }
+
+  /* Animasi slideUp sedikit lebih cepat biar nggak terasa lambat di HP */
+  @keyframes slideUp {
+    from { transform: translateY(50px); opacity: 0; }
+    to   { transform: translateY(0); opacity: 1; }
+  }
+}
+
+/* Untuk HP sangat kecil (iPhone SE, Galaxy Fold, dll) */
+@media (max-width: 360px) {
+  .modal-content {
+    padding: 24px 18px;
+  }
+  .modal-title {
+    font-size: 19px;
+  }
+  input,
+  select {
+    padding: 12px 14px;
+    font-size: 14px;
+  }
+  .btn-cancel,
+  .btn-primary {
+    padding: 14px 18px;
+    font-size: 14.5px;
+  }
+}
+
 </style>
