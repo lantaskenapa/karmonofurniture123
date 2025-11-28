@@ -33,13 +33,16 @@ export const initUI = () => {
 
   // Close modal
   document.addEventListener('click', (e) => {
-    if (e.target.closest('.close-modal-btn') || e.target.closest('.close-modal')) {
-      const modalId = e.target.closest('[data-modal]')?.dataset.modal;
-      if (modalId) ModalManager.close(modalId);
+    if (e.target.closest('.close-modal-btn') || e.target.closest('.close-modal')) {
+      const modalElement = e.target.closest('[data-modal], .modal-backdrop'); // Cari elemen yang punya data-modal ATAU punya class modal-backdrop
+      // Ambil dari data-modal atau dari id
+      const modalId = modalElement?.dataset.modal || modalElement?.id; 
+
+      if (modalId) ModalManager.close(modalId);
     }
-    if (e.target.classList.contains('modal-overlay')) {
-      e.target.classList.remove('active');
-      document.body.style.overflow = '';
+    if (e.target.classList.contains('modal-backdrop')) { // <-- UBAH KE 'modal-backdrop'
+      e.target.classList.remove('active');
+      document.body.style.overflow = '';
     }
   });
 };
@@ -71,6 +74,7 @@ async function initAddProjectForm() {
       tanggal: new Date(form.tanggalMulai.value).toLocaleDateString('id-ID'),
       urgensi: form.querySelector('input[name="urgensi"]:checked')?.value || 'Normal',
       createdAt: new Date()
+   // untuk sorting jika perlu
     };
 
     try {

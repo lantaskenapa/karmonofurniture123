@@ -1,0 +1,152 @@
+<!-- partials/sort-popup.html -->
+<div class="sort-popup-overlay" id="sortPopupOverlay"></div>
+<div class="sort-popup" id="sortPopup">
+  <div class="sort-popup-header">
+    <h3><i class="fas fa-sort-amount-down"></i> Sort by</h3>
+    <button class="sort-close-btn" id="sortCloseBtn">
+      <i class="fas fa-times"></i>
+    </button>
+  </div>
+  <div class="sort-options">
+    <button class="sort-option active" data-sort="terdekat">
+      <i class="fas fa-clock"></i>
+      <div>
+        <div class="sort-title">Paling Dekat</div>
+        <div class="sort-desc">Tanggal mulai terdekat</div>
+      </div>
+    </button>
+    <button class="sort-option" data-sort="terjauh">
+      <i class="fas fa-calendar-alt"></i>
+      <div>
+        <div class="sort-title">Masih Nanti</div>
+        <div class="sort-desc">Tanggal mulai terjauh</div>
+      </div>
+    </button>
+    <button class="sort-option" data-sort="rush">
+      <i class="fas fa-exclamation-triangle"></i>
+      <div>
+        <div class="sort-title">Buru-buru</div>
+        <div class="sort-desc">Rush dulu, Normal belakangan</div>
+      </div>
+    </button>
+    <button class="sort-option" data-sort="budget-desc">
+      <i class="fas fa-arrow-up"></i>
+      <div>
+        <div class="sort-title">Budget Besar</div>
+        <div class="sort-desc">Anggaran terbesar dulu</div>
+      </div>
+    </button>
+    <button class="sort-option" data-sort="budget-asc">
+      <i class="fas fa-arrow-down"></i>
+      <div>
+        <div class="sort-title">Budget Kecil</div>
+        <div class="sort-desc">Anggaran terkecil dulu</div>
+      </div>
+    </button>
+  </div>
+</div>
+
+<style>
+  /* SORT POPUP – CANTIK, MODERN, DENGAN SHADOW */
+  .sort-popup-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.5);
+    backdrop-filter: blur(8px);
+    z-index: 999;
+  }
+  .sort-popup-overlay.show { display: block; }
+
+  .sort-popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.9);
+    width: 90%;
+    max-width: 420px;
+    background: white;
+    border-radius: 24px;
+    box-shadow: 0 25px 70px rgba(0,0,0,0.25);
+    z-index: 1000;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+    overflow: hidden;
+  }
+  .sort-popup.show {
+    opacity: 1;
+    visibility: visible;
+    transform: translate(-50%, -50%) scale(1);
+  }
+
+  .sort-popup-header {
+    padding: 20px 24px 16px;
+    background: linear-gradient(135deg, #0d9488, #10b981);
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .sort-popup-header h3 {
+    margin: 0;
+    font-size: 18px;
+    font-weight: 700;
+    font-family: 'Inter', sans-serif;
+  }
+  .sort-close-btn {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+    padding: 4px;
+    border-radius: 50%;
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .sort-close-btn:hover { background: rgba(255,255,255,0.2); }
+
+  .sort-options {
+    padding: 12px 0;
+  }
+  .sort-option {
+    width: 100%;
+    padding: 16px 24px;
+    background: none;
+    border: none;
+    text-align: left;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    font-family: 'Inter', sans-serif;
+  }
+  .sort-option:hover {
+    background: #f0fdfa;
+    padding-left: 32px;
+  }
+  .sort-option.active {
+    background: linear-gradient(90deg, #ecfdf5, transparent);
+    color: #0d9488;
+    font-weight: 700;
+  }
+  .sort-option i {
+    font-size: 20px;
+    width: 28px;
+    color: #0d9488;
+  }
+  .sort-title {
+    font-size: 15px;
+    font-weight: 600;
+  }
+  .sort-desc {
+    font-size: 12.5px;
+    color: #64748b;
+    margin-top: 2px;
+  }
+</style>

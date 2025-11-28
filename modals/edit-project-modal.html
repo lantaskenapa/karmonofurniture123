@@ -1,0 +1,203 @@
+<div class="modal-backdrop" id="editProjectModal" data-modal="editProjectModal">
+  <div class="modal-content edit-project-modal">
+    <!-- Header dengan icon edit -->
+    <div class="modal-header-edit">
+      <div class="edit-icon">
+        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M11 4H4C3.44772 4 3 4.44772 3 5V19C3 19.5523 3.44772 20 4 20H18C18.5523 20 19 19.5523 19 19V12" 
+                stroke="#9C27B0" stroke-width="2" stroke-linecap="round"/>
+          <path d="M17.5 3.5L20.5 6.5M9 15L18 6L20.5 3.5L21 3L20.5 6.5L18 9L9 18H6V15L15 6" 
+                stroke="#9C27B0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+      <h3>Edit Project</h3>
+    </div>
+
+    <form id="editProjectForm">
+      <div class="form-group">
+        <label>Nama Project</label>
+        <input type="text" id="editNamaProject" required placeholder="ex: Rumah Bapak Joko">
+      </div>
+
+      <div class="form-group">
+        <label>Lokasi</label>
+        <input type="text" id="editLokasi" placeholder="ex: Indramayu">
+      </div>
+
+      <div class="form-row">
+        <div class="form-group half">
+          <label>Tanggal Mulai</label>
+          <div class="inline-date">
+            <div class="date-wrapper">
+              <i class="fas fa-calendar-alt"></i>
+              <input type="date" id="editTanggalMulai" required>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group half">
+          <label>Estimasi (Minggu)</label>
+          <select id="editEstimasi" required>
+            <option value="">Pilih durasi</option>
+            <!-- akan diisi otomatis 1–24 -->
+          </select>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label>Anggaran (Rp)</label>
+        <input type="text" id="editAnggaran" placeholder="2.999.104" inputmode="numeric">
+        <small class="text-muted">Tanpa titik atau Rp, cukup angka saja</small>
+      </div>
+
+      <div class="form-group">
+        <label>Urgensi</label>
+        <div class="urgency-group">
+          <label class="radio-label">
+            <input type="radio" name="editUrgensi" value="Normal" checked>
+            <span class="custom-radio"></span>
+            <span>Normal</span>
+          </label>
+          <label class="radio-label">
+            <input type="radio" name="editUrgensi" value="Rush">
+            <span class="custom-radio rush"></span>
+            <span>Rush</span>
+          </label>
+        </div>
+      </div>
+
+      <div class="modal-actions">
+        <button type="button" class="btn-cancel close-modal-btn">Batal</button>
+        <button type="submit" class="btn-submit">
+          <span>Simpan Perubahan</span>
+        </button>
+      </div>
+
+      <!-- Tombol Hapus Project di paling bawah -->
+      <div class="delete-project-section">
+        <button type="button" id="btnHapusProjectDariModal" class="btn-delete-outline">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+            <path d="M3 6H5H21" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            <path d="M8 6V4C8 3.44772 8.44772 3 9 3H15C15.5523 3 16 3.44772 16 4V6M19 6V20C19 20.5523 18.5523 21 18 21H6C5.44772 21 5 20.5523 5 20V6H19Z" 
+                  stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+          Hapus Project Ini
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<style>
+  .edit-project-modal {
+    max-width: 460px;
+    padding: 32px 28px;
+  }
+
+  .modal-header-edit {
+    text-align: center;
+    margin-bottom: 24px;
+  }
+
+  .modal-header-edit h3 {
+    margin: 12px 0 0 0;
+    font-size: 22px;
+    font-weight: 700;
+    color: #1f2937;
+  }
+
+  .edit-icon {
+    width: 64px;
+    height: 64px;
+    background: linear-gradient(135deg, #9C27B0, #E91E63);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 8px;
+    box-shadow: 0 8px 25px rgba(156, 39, 176, 0.3);
+  }
+
+  /* Form styling sama persis kayak add project */
+  .form-group { margin-bottom: 18px; }
+  .form-group label {
+    display: block;
+    font-size: 14px;
+    font-weight: 600;
+    color: #444;
+    margin-bottom: 8px;
+  }
+  .form-group input,
+  .form-group select {
+    width: 100%;
+    padding: 14px 16px;
+    border: 2px solid #e0e0e0;
+    border-radius: 14px;
+    font-size: 15px;
+    background: #fafafa;
+    transition: all 0.3s;
+  }
+  .form-group input:focus,
+  .form-group select:focus {
+    outline: none;
+    border-color: #9C27B0;
+    background: white;
+    box-shadow: 0 0 0 4px rgba(156, 39, 176, 0.1);
+  }
+
+  .form-row { display: flex; gap: 16px; margin-bottom: 18px; }
+  .form-group.half { flex: 1; }
+
+  .inline-date { position: relative; }
+  .inline-date i {
+    position: absolute;
+    left: 14px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #9C27B0;
+    font-size: 18px;
+    pointer-events: none;
+    z-index: 2;
+  }
+  .inline-date input[type="date"] {
+    padding-left: 44px !important;
+  }
+
+  /* Radio button sama persis */
+  .urgency-group { gap: 44px; margin-top: 12px; justify-content: center; }
+  .custom-radio { width: 26px !important; height: 26px !important; }
+  .radio-label input[value="Rush"]:checked + .custom-radio {
+    background: #E82064; border-color: #E82064 !important;
+  }
+
+  .modal-actions { margin-top: 10px; }
+
+  /* Tombol Hapus di bawah */
+  .delete-project-section {
+    margin-top: 32px;
+    padding-top: 24px;
+    border-top: 1px solid #eee;
+    text-align: center;
+  }
+
+  .btn-delete-outline {
+    background: none;
+    border: 2px solid #ef4444;
+    color: #ef4444;
+    padding: 12px 24px;
+    border-radius: 14px;
+    font-weight: 600;
+    font-size: 15px;
+    cursor: pointer;
+    transition: all 0.3s;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .btn-delete-outline:hover {
+    background: #fef2f2;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(239, 68, 68, 0.2);
+  }
+</style>

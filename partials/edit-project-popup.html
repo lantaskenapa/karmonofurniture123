@@ -1,0 +1,55 @@
+<!-- partials/edit-project-popup.html -->
+<div class="modal-overlay" id="editProjectOverlay"></div>
+
+<div class="modal" id="editProjectModal">
+  <div class="modal-header">
+    <h3><i class="fas fa-pen"></i> Edit Project</h3>
+    <button class="modal-close" id="editProjectCloseBtn">×</button>
+  </div>
+
+  <div class="modal-body">
+    <form id="editProjectForm">
+      <div class="form-group">
+        <label>Nama Project <span class="text-danger">*</span></label>
+        <input type="text" id="editNama" required placeholder="Masukkan nama project">
+      </div>
+
+      <div class="form-group">
+        <label>Lokasi</label>
+        <input type="text" id="editLokasi" placeholder="Contoh: Jakarta Selatan">
+      </div>
+
+      <div class="form-grid">
+        <div class="form-group">
+          <label>Anggaran</label>
+          <input type="number" id="editAnggaran" placeholder="0">
+        </div>
+
+        <div class="form-group">
+          <label>Tanggal Mulai</label>
+          <input type="date" id="editTanggal">
+        </div>
+      </div>
+
+      <div class="form-grid">
+        <div class="form-group">
+          <label>Estimasi Selesai</label>
+          <input type="text" id="editEstimasi" placeholder="Contoh: 3 bulan">
+        </div>
+
+        <div class="form-group">
+          <label>Urgensi</label>
+          <select id="editUrgensi">
+            <option value="Normal">Normal</option>
+            <option value="Rush">Rush</option>
+          </select>
+        </div>
+      </div>
+    </form>
+  </div>
+
+  <div class="modal-footer">
+    <button class="btn-cancel" id="editProjectCancelBtn">Batal</button>
+    <button class="btn-primary" id="btnUpdateProject">Update Project</button>
+  </div>
+</div>

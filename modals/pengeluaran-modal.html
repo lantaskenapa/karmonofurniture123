@@ -1,0 +1,58 @@
+<!-- modals/pengeluaran-modal.html — HANYA HTML + CSS -->
+<div class="modal-backdrop" id="pengeluaranModal" data-modal="pengeluaranModal">
+  <div class="modal-content">
+    <div class="modal-header" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; padding: 0 4px;">
+      <h2 class="modal-title" style="margin: 0; font-size: 18px; font-weight: 700;">Tambah Pengeluaran</h2>
+      <button type="button" class="close-modal-btn" style="background:none; border:none; font-size:28px; cursor:pointer; color:#999;">
+        ×
+      </button>
+    </div>
+
+    <div class="form-group">
+      <label>Keterangan</label>
+      <textarea id="keterangan" placeholder="Contoh: Beli kayu jati 4x6"></textarea>
+    </div>
+
+    <div class="form-group">
+      <label>Qty × Harga Satuan</label>
+      <div class="calc-row" style="display:grid; grid-template-columns:1fr auto 1fr auto 1fr; gap:12px; align-items:center; margin:16px 0;">
+        <input type="number" id="qty" value="1" min="1" class="calc-input" style="text-align:center; font-weight:700;">
+        <span>×</span>
+        <input type="number" id="hargaSatuan" placeholder="0" class="calc-input" style="text-align:center; font-weight:700;">
+        <span>=</span>
+        <div class="total-amount" id="totalRp" style="color:#06b6d4; font-size:18px; font-weight:700;">Rp 0</div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label>Tanggal</label>
+      <input type="date" id="tanggalPengeluaran">
+    </div>
+
+    <div class="modal-actions" style="display:flex; gap:12px; margin-top:28px;">
+      <button type="button" class="btn-cancel close-modal-btn" style="flex:1; padding:12px; background:#f1f1f1; border:none; border-radius:12px; cursor:pointer;">
+        Batal
+      </button>
+      <button type="button" class="btn-add" id="btnSimpanPengeluaran" style="flex:2; padding:12px; background:#06b6d4; color:white; border:none; border-radius:12px; cursor:pointer;">
+        Tambah
+      </button>
+    </div>
+  </div>
+</div>
+
+<style>
+  .modal-backdrop { 
+    display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.5); 
+    align-items: center; justify-content: center; z-index: 999; padding: 16px; 
+  }
+  .modal-backdrop.active { display: flex !important; }
+  .modal-content { 
+    background: white; border-radius: 20px; width: 100%; max-width: 420px; 
+    padding: 28px 24px; box-shadow: 0 20px 50px rgba(0,0,0,0.15); 
+  }
+  input, textarea { 
+    width: 100%; padding: 12px 16px; border: 1.5px solid #e0e0e0; border-radius: 12px; font-size: 15px; 
+  }
+  textarea { min-height: 80px; resize: vertical; }
+  label { font-size: 13px; color: #555; margin-bottom: 8px; display: block; font-weight: 500; }
+</style>

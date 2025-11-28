@@ -13,9 +13,8 @@
   <link rel="stylesheet" href="css/style.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
 
-  <!-- CSS KHUSUS HALAMAN DETAIL -->
+  <!-- CSS KHUSUS HALAMAN DETAIL + TABEL BISA SCROLL HORIZONTAL -->
   <style>
-    /* Semua teks ISI halaman pakai Kedebideri */
     body {
       font-family: 'Kedebideri', system-ui, sans-serif !important;
       font-weight: 400;
@@ -23,26 +22,196 @@
       color: #333;
     }
 
-    /* Tabel & teks kecil tetap Kedebideri */
     table, td, th, .btn-minimal, .table-section h3 {
       font-family: 'Kedebideri', sans-serif !important;
     }
 
-    /* JUDUL PROYEK TETAP INTER (kecuali isi tabel) */
-    .project-title,
-    .project-subtitle {
+    .project-title, .project-subtitle {
       font-family: 'Inter', sans-serif !important;
     }
 
     .project-title    { font-size: 18px; font-weight: 600; }
     .project-subtitle { font-size: 12px; color: #999; margin-top: 2px; }
 
-    /* Tabel super minimalis */
     .table-section h3 { font-size: 16px; font-weight: 600; margin-bottom: 12px; }
-    table { font-size: 13.5px; }
-    th    { font-size: 13px; font-weight: 500; color: #666; background: #f9f9fb; }
-    td    { padding: 10px 12px; }
     .btn-minimal { font-size: 13px; padding: 8px 16px; }
+
+    /* === TABEL BISA SCROLL HORIZONTAL (PAKAI ID YANG SAMA!) === */
+    .table-container {
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      border-radius: 12px;
+      margin: 12px 0 20px 0;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.06);
+      background: white;
+    }
+
+    .table-container table {
+  /* HAPUS min-width: 700px; */
+  /* GANTI JADI: */
+  width: max-content;        /* Lebar mengikuti isi teks */
+  min-width: 100%;           /* Minimal selebar layar (biar rapi) */
+  max-width: none;           /* Boleh lebih lebar dari layar */
+  border-collapse: separate;
+  border-spacing: 0;
+  font-size: 13.5px;
+}
+
+    .table-container th,
+    .table-container td {
+      padding: 14px 12px;
+      text-align: left;
+      border-bottom: 1px solid #e5e7eb;
+      white-space: nowrap;
+    }
+
+    .table-container th {
+      background: #f8fafc;
+      font-weight: 600;
+      color: #374151;
+      font-size: 13px;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    .table-container tr:hover {
+      background: #f0f9ff;
+    }
+
+    /* Kolom Keterangan boleh wrap & lebar */
+    .table-container td:nth-child(1) {
+      white-space: normal;
+      min-width: 160px;
+      max-width: 220px;
+    }
+
+    /* Scrollbar cantik */
+    .table-container::-webkit-scrollbar {
+      height: 8px;
+    }
+    .table-container::-webkit-scrollbar-track {
+      background: #f1f1f1;
+      border-radius: 4px;
+    }
+    .table-container::-webkit-scrollbar-thumb {
+      background: #94a3b8;
+      border-radius: 4px;
+    }
+    .table-container::-webkit-scrollbar-thumb:hover {
+      background: #64748b;
+    }
+
+/* TOTAL DI LUAR TABEL — DESIGN PREMIUM */
+/* TOTAL PENGELUARAN – MINIMALIS & MODERN */
+.total-section {
+  margin: 24px 12px 8px;
+  padding: 0;
+}
+
+.total-divider {
+  height: 1px;
+  background: #e2e8f0;
+  margin: 0 0 16px 0;
+  border-radius: 1px;
+}
+
+.total-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 0;
+  font-size: 15px;
+}
+
+.total-label {
+  font-weight: 600;
+  color: #475569;
+  letter-spacing: 0.3px;
+  line-height: 1.35;        /* biar jarak antar baris pas */
+  text-align: left;
+}
+
+.total-label span {
+  font-weight: 600;
+  color: #0d9488;
+}
+
+.total-amount {
+  font-weight: 600;
+  font-size: 16px;
+  color: #0d9488;
+  font-family: 'Inter', sans-serif;
+}
+
+/* Optional: sedikit animasi saat angka berubah */
+.total-amount {
+  transition: all 0.4s ease;
+}
+
+/* TOMBOl AKSI PALING BAWAH — MINIMALIS & MODERN */
+.project-actions-bottom {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  padding: 32px 20px 40px;
+  margin-top: 40px;
+  border-top: 1px solid #e2e8f0;
+  background: #fafafa;
+  border-radius: 0 0 20px 20px;
+}
+
+.btn-project-complete,
+.btn-project-delete {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 28px;
+  border: none;
+  border-radius: 18px;
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-family: 'Inter', sans-serif;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.btn-project-complete {
+  background: linear-gradient(135deg, #10b981, #059669);
+  color: white;
+}
+
+.btn-project-complete:hover {
+  background: linear-gradient(135deg, #059669, #047857);
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px rgba(16, 185, 129, 0.3);
+}
+
+.btn-project-delete {
+  background: linear-gradient(135deg, #ef4444, #dc2626);
+  color: white;
+}
+
+.btn-project-delete:hover {
+  background: linear-gradient(135deg, #dc2626, #b91c1c);
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px rgba(239, 68, 68, 0.3);
+}
+
+/* Responsif di HP */
+@media (max-width: 480px) {
+  .project-actions-bottom {
+    flex-direction: column;
+    padding: 28px 16px;
+  }
+  .btn-project-complete,
+  .btn-project-delete {
+    justify-content: center;
+    width: 100%;
+  }
+}
+
   </style>
 </head>
 <body>
@@ -50,63 +219,159 @@
 <header class="header">
   <div class="brand">
     <img src="assets/logo.png" alt="Karmono Logo" class="logo">
-<div class="brand-text">
-  <h1 class="project-title" id="projectTitle">Google UX Course</h1>
-  <p class="project-subtitle">Project Detail</p>
-</div>
+    <div class="brand-text">
+      <h1 class="project-title" id="projectTitle">Google UX Course</h1>
+      <p class="project-subtitle">Project Detail</p>
+    </div>
   </div>
-<!-- Tombol Back: hanya icon, di pojok KANAN atas -->
-<button class="btn-back-icon" onclick="history.back()">
-  <i class="fas fa-arrow-left"></i>
-</button>
+  <button class="btn-back-icon" onclick="history.back()">
+    <i class="fas fa-arrow-left"></i>
+  </button>
 </header>
 
-    <main class="content detail-page">
-      <!-- Tabel Pengeluaran -->
-      <section class="table-section">
-        <h3>Pengeluaran</h3>
-        <table id="tabelPengeluaran">
-          <thead>
-            <tr>
-              <th>Ket.</th><th>Qty</th><th>Harga</th><th>Tanggal</th><th>Nominal</th>
-            </tr>
-          </thead>
-          <tbody></tbody>
-        </table>
-        <button class="btn-minimal" onclick="tambahPengeluaran()">
-          <i class="fas fa-plus"></i> Tambah Pengeluaran
-        </button>
-      </section>
+<div class="project-meta-info">
+  <div class="meta-grid">
+    <div class="meta-item">
+      <span class="meta-label">Anggaran</span>
+      <span class="meta-value" id="infoAnggaran">-</span>
+    </div>
+    <div class="meta-item">
+      <span class="meta-label">Tanggal Mulai</span>
+      <span class="meta-value" id="infoTanggal">-</span>
+    </div>
+    <div class="meta-item">
+      <span class="meta-label">Lokasi</span>
+      <span class="meta-value" id="infoLokasi">-</span>
+    </div>
+    <div class="meta-item estimasi-group">
+      <div class="estimasi-wrapper">
+        <span class="meta-label">Estimasi</span>
+        <span class="meta-value" id="infoEstimasi">-</span>
+      </div>
+      <div id="infoUrgensi" class="detail-urgensi-badge">-</div>
+    </div>
+  </div>
+</div>
 
-      <!-- Tabel Down Payment -->
-      <section class="table-section">
-        <h3>Down Payment</h3>
-        <table id="tabelDP">
-          <thead>
-            <tr>
-              <th>Termin</th><th>Nominal</th><th>Tanggal</th><th>Aksi</th>
-            </tr>
-          </thead>
-          <tbody></tbody>
-        </table>
-        <button class="btn-minimal" onclick="tambahDP()">
-          <i class="fas fa-plus"></i> Tambah Down Payment
-        </button>
-      </section>
-    </main>
+<main class="content detail-page">
+
+  <!-- TABEL PENGELUARAN — BISA GESER! -->
+<!-- TABEL PENGELUARAN + TOTAL DI BAWAH (DI LUAR TABEL) -->
+<section class="table-section">
+  <h3 class="section-title">
+    <img src="assets/expense.png" alt="" class="title-icon"> Pengeluaran
+  </h3>
+  
+  <div class="table-container">
+    <table id="tabelPengeluaran">
+      <thead>
+        <tr>
+          <th>Keterangan</th>
+          <th>Qty</th>
+          <th>Harga Satuan</th>
+          <th>Tanggal</th>
+          <th>Total</th>
+          <th style="width: 80px; text-align: center;">Aksi</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Data dari Firebase masuk sini -->
+      </tbody>
+    </table>
+  </div>
+
+  <!-- TOTAL + GARIS PEMISAH (DI LUAR TABEL) -->
+  <div class="total-section">
+  <div class="total-divider"></div>
+  <div class="total-row">
+    <div class="total-label">
+      Total<br>
+      <span style="font-weight:800; color:#0d9488;">Pengeluaran</span>
+    </div>
+    <div class="total-amount" id="totalPengeluaranAll">Rp 0</div>
+  </div>
+</div>
+
+    <button class="btn-minimal" id="btnTambahPengeluaran">
+      <i class="fas fa-plus"></i> Tambah Pengeluaran
+    </button>
+  </section>
+
+  <!-- TABEL DOWN PAYMENT — JUGA BISA GESER -->
+  <section class="table-section">
+    <h3 class="section-title">
+      <img src="assets/downpayment.png" alt="" class="title-icon"> Down Payment
+    </h3>
+    
+    <div class="table-container">
+      <table id="tabelDP">
+        <thead>
+          <tr>
+            <th>Termin</th>
+            <th>Nominal</th>
+            <th>Tanggal</th>
+            <th>Aksi</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </div>
+
+    <div class="total-section">
+    <div class="total-divider"></div>
+    <div class="total-row">
+      <div class="total-label">
+        Total<br>
+        <span style="font-weight:800; color:#16a34a;">Down Payment</span>
+      </div>
+      <div class="total-amount" id="totalDownPayment">Rp 0</div>
+    </div>
+  </div>
+  <!-- AKHIR TOTAL DOWN PAYMENT -->
+
+    <button class="btn-minimal" id="btnTambahDP">
+      <i class="fas fa-plus"></i> Tambah Down Payment
+    </button>
+  </section>
+
+  <!-- ACTION BUTTONS — PALING BAWAH -->
+  <div class="project-actions-bottom">
+    <button class="btn-project-complete" id="btnSelesaiProject">
+      <i class="fas fa-check-circle"></i>
+      Project Selesai
+    </button>
+    <button class="btn-project-delete" id="btnHapusProject">
+      <i class="fas fa-trash-alt"></i>
+      Hapus Project
+    </button>
+  </div>
+</main>
+
+
+
+
+</main>
   </div>
 
   <script type="module" src="js/main.js"></script>
   <script>
-  // LANGSUNG GANTI JUDUL PAKAI DATA YANG SUDAH DISIMPAN
-  document.addEventListener('DOMContentLoaded', () => {
-    const nama = localStorage.getItem('currentProject');
-    const titleEl = document.getElementById('projectTitle');
-    if (nama && titleEl) {
-      titleEl.textContent = nama;
-    }
-  });
+    document.addEventListener('DOMContentLoaded', () => {
+      const nama = localStorage.getItem('currentProject');
+      const titleEl = document.getElementById('projectTitle');
+      if (nama && titleEl) {
+        titleEl.textContent = nama;
+      }
+    });
+  </script>
+  <!-- FOOTER GLOBAL – AKAN MUNCUL DI SEMUA HALAMAN -->
+<div id="globalFooter"></div>
+
+<script>
+  // Load footer otomatis di semua halaman
+  fetch('partials/footer.html')
+    .then(r => r.text())
+    .then(html => document.getElementById('globalFooter').innerHTML = html)
+    .catch(() => console.log('Footer gagal dimuat'));
 </script>
-<script type="module" src="js/main.js"></script>
 </body>
 </html>

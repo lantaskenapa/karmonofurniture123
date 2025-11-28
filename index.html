@@ -57,11 +57,21 @@
 </section>
 
       <!-- Recent Files -->
-      <section class="recent">
-        <div class="section-header">
-          <h3>Project List</h3>
-          <a href="#" class="view-all">View all</a>
-        </div>
+<!-- Di dalam .section-header (Recent Files) -->
+<div class="section-header">
+  <h3>Project List</h3>
+  <div class="header-actions">
+    <button class="sort-trigger-btn" id="openSortPopup">
+      <i class="fas fa-sort-amount-down"></i>
+      Sort by
+    </button>
+
+    <!-- TOMBOL EDIT BARU -->
+    <button class="edit-trigger-btn" id="openEditListPopup">
+      <i class="fas fa-pen"></i>
+    </button>
+  </div>
+</div>
         <div class="file-list">
          
         </div>
@@ -69,5 +79,17 @@
     </main>
   </div>
   <script type="module" src="js/main.js"></script>
+  <!-- FOOTER GLOBAL – AKAN MUNCUL DI SEMUA HALAMAN -->
+<div id="globalFooter"></div>
+
+<script>
+  // Load footer otomatis di semua halaman
+  fetch('partials/footer.html')
+    .then(r => r.text())
+    .then(html => document.getElementById('globalFooter').innerHTML = html)
+    .catch(() => console.log('Footer gagal dimuat'));
+</script>
 </body>
+
+
 </html>
